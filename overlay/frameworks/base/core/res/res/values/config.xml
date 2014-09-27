@@ -71,6 +71,7 @@
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
+        <item>"rndis\\d"</item>
         <item>"usb\\d"</item>
     </string-array>
 
@@ -298,5 +299,28 @@
 
     <!-- Boolean to enable STK functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
+
+    <!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
+    <!-- Indicate the device's Smart Cover coordinates.
+         If none are provided, then the feature will be disabled.
+         The array should contain 4 values, in pixels, (sample values provided):
+         Top      0
+         Left     100
+         Bottom   Top + 400
+         Right    Display Width - 100
+    -->
+    <integer-array name="config_smartCoverWindowCoords">
+        <item>30</item>
+        <item>44</item>
+        <item>450</item>
+        <item>1036</item>
+    </integer-array>
 
 </resources>
