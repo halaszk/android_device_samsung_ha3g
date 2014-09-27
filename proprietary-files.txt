@@ -141,6 +141,8 @@ lib/libsensorhubservice.so
 lib/libaudio-ril.so
 lib/libsec-ril.so
 lib/libsecnativefeature.so
+bin/at_distributor
+bin/mlexe
 
 # LPM
 bin/lpm

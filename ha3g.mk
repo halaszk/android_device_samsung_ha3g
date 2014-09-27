@@ -49,7 +49,7 @@ PRODUCT_PACKAGES += \
     init.superuser.rc \
     init.universal5420.rc \
     init.universal5420.usb.rc \
-    init.wifi.rc \
+    init.universal5420.wifi.rc \
     lpm.rc \
     ueventd.universal5420.rc
 
