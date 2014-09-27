@@ -72,6 +72,10 @@
 /dev/block/mmcblk0p13     0660   system     radio
 /dev/umts*                0660   system     radio
 
+# sensor sysfs properties
+/sys/devices/virtual/input/input* poll_delay 0660 system radio
+/sys/devices/virtual/input/input* enable 0660 system radio
+
 # vfs
 /dev/vfsspi        0660   system     system
 

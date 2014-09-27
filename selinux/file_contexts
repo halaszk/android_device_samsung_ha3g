@@ -48,6 +48,7 @@
 /dev/block/mmcblk1p1    u:object_r:emmcblk_device:s0
 /dev/hsicctl[0-3]*	u:object_r:hsic_device:s0
 /dev/i2c.*		u:object_r:i2c_device:s0
+/dev/ion		u:object_r:ion_device:s0
 /dev/batch_io	u:object_r:io_device:s0
 /dev/link_pm		u:object_r:radio_device:s0
 /dev/keychord		u:object_r:keychord_device:s0

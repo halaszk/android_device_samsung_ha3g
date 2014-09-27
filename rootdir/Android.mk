@@ -87,11 +87,3 @@ LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= etc/init.recovery.universal5420.usb.rc
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := cbd
-LOCAL_MODULE_TAGS  := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := sbin/cbd
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT_SBIN)
-include $(BUILD_PREBUILT)

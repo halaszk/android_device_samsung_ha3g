@@ -38,6 +38,9 @@ on init
 
 sysclktz 0
 
+    setenforce 0
+    setprop ro.boot.selinux 0
+
 loglevel 3
 
 # Backward compatibility
@@ -194,6 +197,8 @@ on post-fs
     mkdir /cache/lost+found 0770 root root
 
 on post-fs-data
+    # Reload SE Android Policy
+    setprop selinux.reload_policy 0
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     chmod 0771 /data
