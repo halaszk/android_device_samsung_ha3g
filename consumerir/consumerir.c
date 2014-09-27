@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,17 +40,20 @@ static int consumerir_transmit(struct consumerir_device *dev,
 {
     int strlen;
     int i;
-    char buffer[1024];
+    char buffer[2048];
 
-    memset(buffer, 0, 1024);
+    memset(buffer, 0, 2048);
 
     /* write the header */
     strlen = sprintf(buffer, "%d,", carrier_freq);
 
+    /* calculate factor of conversion from microseconds to pulses */
+    float factor = 1000000 / carrier_freq;
+
     /* write out the timing pattern */
     for (i = 0; i < pattern_len; i++)
     {
-        strlen += sprintf(buffer + strlen, "%d,", pattern[i]);
+        strlen += sprintf(buffer + strlen, "%d,", (int) (pattern[i]/factor));
     }
 
     buffer[strlen - 1] = 0;

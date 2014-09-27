@@ -40,9 +40,12 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 # Ramdisk
+TARGET_PROVIDES_INIT_RC := true
+
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
     charger \
+    init.samsung.rc \
     init.superuser.rc \
     init.universal5420.rc \
     init.universal5420.usb.rc \
@@ -167,12 +170,12 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.universal5420
+   gps.universal5420
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.cer:system/etc/gps.cer \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/gps.cer:system/etc/gps.cer \
+#    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+#    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
 
 # support for epen
 PRODUCT_COPY_FILES += \
@@ -180,7 +183,7 @@ PRODUCT_COPY_FILES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    consumerir.exynos5420
+    consumerir.universal5420
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -208,6 +211,12 @@ PRODUCT_PACKAGES += \
     libgdmcprov \
     mcDriverDaemon
 
+# Network tools
+
+PRODUCT_PACKAGES += \
+    libpcap \
+    tcpdump
+
 # NFC
 PRODUCT_PACKAGES += \
     libnfc-nci \
@@ -216,10 +225,6 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     com.android.nfc_extras
-
-# IR
-PRODUCT_PACKAGES += \
-    consumerir.exynos5
 
 # NFCEE access control + configuration
 PRODUCT_COPY_FILES += \
@@ -233,15 +238,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
 # OMX
-#PRODUCT_PACKAGES += \
-#    libExynosOMX_Core \
-#    libOMX.Exynos.MPEG4.Decoder \
-#    libOMX.Exynos.AVC.Decoder \
-#    libOMX.Exynos.VP8.Decoder \
-#    libOMX.Exynos.MPEG4.Encoder \
-#    libOMX.Exynos.AVC.Encoder \
-#    libOMX.Exynos.VP8.Encoder \
-#    libstagefrighthw
+PRODUCT_PACKAGES += \
+    libcsc \
+    libExynosOMX_Core \
+    libOMX.Exynos.MP3.Decoder \
+    libstagefrighthw \
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -275,6 +276,11 @@ PRODUCT_PACKAGES += \
     crda \
     regulatory.bin \
     linville.key.pub.pem
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 #common build.props
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -323,7 +329,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/ha3g/ha3g-vendor.mk)
-$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_ha3g
