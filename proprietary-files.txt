@@ -189,3 +189,5 @@ etc/wifi/wpa_supplicant_overlay.conf
 # some need dep..
 vendor/lib/liblvverx_3.20.03.so
 vendor/lib/liblvvetx_3.20.03.so
+bin/secure_storage_daemon
+bin/bintvoutservice
