@@ -163,9 +163,9 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Display
-PRODUCT_PACKAGES += \
-    libExynosHWCService \
-    libfimg
+#PRODUCT_PACKAGES += \
+#    libExynosHWCService \
+#    libfimg
 #    libhdmi
 
 # GPS
@@ -235,7 +235,7 @@ PRODUCT_COPY_FILES += \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    persist.sys.usb.config=mtp,adb
 
 # OMX
 PRODUCT_PACKAGES += \

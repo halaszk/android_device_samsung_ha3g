@@ -145,6 +145,16 @@ on boot
     chown system radio /sys/class/sec/sec_touchkey/touchkey_threshold
     chown system system /sys/devices/virtual/sec/sec_touchkey/brightness
     chown system radio /sys/class/sec/sec_touchkey/extra_button_event
+    chown system radio /sys/class/sec/sec_touchkey/glove_mode
+    chown system radio /sys/class/sec/sec_touchkey/flip_mode
+    chown system radio /sys/class/sec/sec_touchkey/boost_level
+
+    chown system system /sys/class/input/input15/enabled
+    chmod 0660 /sys/class/input/input15/enabled
+    chown system system /sys/class/input/input18/enabled
+    chmod 0660 /sys/class/input/input18/enabled
+    chown system system /sys/class/input/input20/enabled
+    chmod 0660 /sys/class/input/input20/enabled
 
 # Permissions for gpio_keys
     chown radio system /sys/class/sec/sec_key/wakeup_keys
@@ -176,6 +186,7 @@ on boot
     chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
     chown system radio /sys/class/sensors/accelerometer_sensor/vendor
     chown system radio /sys/class/sensors/accelerometer_sensor/name
+    chown system radio /sys/class/sensors/accelerometer_sensor/selftest
 # Proximity_sensor
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
@@ -220,7 +231,10 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/name
     chown system radio /sys/class/sensors/temphumidity_sensor/engine_ver
     chown system radio /sys/class/sensors/temphumidity_sensor/send_accuracy
-
+    chown system radio /sys/class/sensors/temphumidity_sensor/mcu_batt_adc
+    chown system radio /sys/class/sensors/temphumidity_sensor/mcu_chg_adc
+    chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
+    chown system radio /sys/class/sensors/temphumidity_sensor/chg_temperature
 # Permissions Camera
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype
