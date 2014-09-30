@@ -23,5 +23,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=ha3gxx \
     PRODUCT_DEVICE=ha3g \
     TARGET_DEVICE=ha3g \
-    BUILD_FINGERPRINT="samsung/ha3gxx/ha3g:4.4.2/KOT49H/N900XXUDNB2:user/release-keys" \
-    PRIVATE_BUILD_DESC="ha3gxx-user 4.4.2 KOT49H N900XXUDNB2 release-keys"
+    BUILD_FINGERPRINT="samsung/ha3gub/ha3g:4.4.2/KOT49H/N900UBUENH1:user/release-keys" \
+    PRIVATE_BUILD_DESC="ha3gub-user 4.4.2 KOT49H N900UBUENH1 release-keys"

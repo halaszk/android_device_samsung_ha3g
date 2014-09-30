@@ -39,7 +39,7 @@ vendor/lib/liboemcrypto.so
 # Camera
 lib/hw/camera.goldfish.so
 lib/hw/camera.goldfish.jpeg.so
-lib/hw/camera.universal5420.so
+lib/hw/camera.universal5420.so:lib/hw/camera.vendor.universal5420.so
 lib/libarcsoft_flawlessface.so
 lib/libarcsoft_nighthawk.so
 lib/libarcsoft_night_shot.so
@@ -55,14 +55,14 @@ lib/libsecnativefeature.so
 lib/libvdis.so
 
 # DRM
-bin/drmserver
+bin/drmserver:bin/drmserver.samsung
 lib/libdrmdecrypt.so
 lib/libstagefright_hdcp.so
 vendor/lib/libwvdrm_L1.so
 lib/libWVphoneAPI.so
-vendor/lib/libWVStreamControlAPI_L1.so
+#vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvm.so
+#vendor/lib/libwvm.so
 vendor/lib/mediadrm/libwvdrmengine.so
 lib/omx/libOMX.Exynos.AVC.Decoder.so
 lib/omx/libOMX.Exynos.AVC.Encoder.so
@@ -83,7 +83,7 @@ etc/gps.xml
 lib/hw/gps.default.so
 
 # HWC
-vendor/lib/hw/gralloc.exynos5.so
+#vendor/lib/hw/gralloc.exynos5.so
 
 # Media
 vendor/firmware/fimc_is_fw2_3L2.bin
@@ -143,9 +143,15 @@ lib/libsensorhubservice.so
 # Radio
 lib/libaudio-ril.so
 lib/libsec-ril.so
+lib/libsecril-client.so
+lib/libril.so
+lib/librilutils.so
+lib/libreference-ril.so
 lib/libsecnativefeature.so
 bin/at_distributor
+bin/rild
 bin/mlexe
+bin/cbd
 
 # LPM
 bin/lpm

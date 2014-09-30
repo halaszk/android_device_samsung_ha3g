@@ -235,6 +235,26 @@ on boot
     chown system radio /sys/class/sensors/temphumidity_sensor/mcu_chg_adc
     chown system radio /sys/class/sensors/temphumidity_sensor/batt_temperature
     chown system radio /sys/class/sensors/temphumidity_sensor/chg_temperature
+# SHTC1 BULK
+    chmod 0600 /dev/shtc1_sensor
+    chown system system /dev/shtc1_sensor
+# SensorHub
+    chown system radio /sys/class/sensors/ssp_sensor/enable
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_rev
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_name
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_test
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_reset
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_update
+    chown system radio /sys/class/sensors/ssp_sensor/mcu_sleep_test
+# Sensorhub IIO
+    chown system radio /sys/class/sensors/ssp_sensor/accel_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/rot_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/game_rot_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/step_det_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/gyro_poll_delay
+    chown system radio /sys/class/sensors/ssp_sensor/ssp_flush
+    chmod 0600 /dev/batch_io
+    chown system system /dev/batch_io
 # Permissions Camera
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camtype
@@ -310,9 +330,6 @@ on boot
     chown radio system /sys/devices/system/cpu/cpufreq/iks-cpufreq/max_freq
     chown radio system /sys/devices/system/cpu/cpufreq/iks-cpufreq/freq_table
     chown radio system /sys/devices/system/cpu/cpufreq/iks-cpufreq/max_eagle_count
-#    chown radio system /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_max_lock
-#    chown radio system /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_min_lock
-#    chown radio system /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_table
     chmod 0664 /sys/class/thermal/thermal_zone0/boost_mode
     chmod 0664 /sys/class/devfreq/exynos5-busfreq-mif/min_freq
     chmod 0664 /sys/class/devfreq/exynos5-busfreq-int/min_freq
@@ -320,9 +337,6 @@ on boot
     chmod 0664 /sys/devices/system/cpu/cpufreq/iks-cpufreq/max_freq
     chmod 0664 /sys/devices/system/cpu/cpufreq/iks-cpufreq/freq_table
     chmod 0664 /sys/devices/system/cpu/cpufreq/iks-cpufreq/max_eagle_count
-#    chmod 0664 /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_max_lock
-#    chmod 0664 /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_min_lock
-#    chmod 0664 /sys/devices/platform/pvrsrvkm.0/sgx_dvfs_table
 
 # CPU Idle
     chown system radio /sys/devices/system/cpu/cpu0/cpuidle/state2/disable
@@ -485,15 +499,14 @@ on property:ro.fuse_sdcard=true
 # Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
 service watchdogd /sbin/watchdogd 10 20
     class core
-    seclabel u:r:watchdogd:s0
-	disabled
+#    seclabel u:r:watchdogd:s0
+#	disabled
 
 #radio
 service cpboot-daemon /system/bin/cbd -d -txmm626x -bh -mh -p13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
-    seclabel u:r:cbd:s0
 
 # Bluetooth LE 2 wired Test
 service LE_dut_cmd_on /system/bin/bttestintf enable
@@ -550,13 +563,6 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
 #    user root
 #    group radio cache inet misc audio sdcard_r sdcard_rw log
 #    onrestart restart cpboot-daemon
-
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_oncrpc qcom_diag log
 
 # AT Distributor for factory test
 service at_distributor /system/bin/at_distributor

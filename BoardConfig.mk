@@ -54,9 +54,11 @@ BOARD_NEEDS_MEMORYHEAPION := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
+COMMON_GLOBAL_CFLAGS += -DUSE_CHAR_BUFFERS
+COMMON_GLOBAL_CFLAGS += -DUSE_CONVERT_WITH_ROTATE
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
+TARGET_KERNEL_SOURCE := kernel/samsung/ha3g
 TARGET_KERNEL_CONFIG := cm_ha3g_defconfig
 BOARD_KERNEL_CMDLINE := console=null vmalloc=512M androidboot.console=null user_debug=31
 BOARD_KERNEL_BASE := 0x10000000
@@ -153,8 +155,8 @@ BOARD_SEPOLICY_UNION := \
     mediaserver.te \
     surfaceflinger.te \
     samsung_media.te \
-    system.te
-#    samsung_drm.te
+    system.te \
+    rild.te
 
 # SurfaceFlinger
 BOARD_USES_SYNC_MODE_FOR_MEDIA := true
