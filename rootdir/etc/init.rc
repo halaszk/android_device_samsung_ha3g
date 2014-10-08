@@ -258,6 +258,16 @@ on post-fs-data
     mkdir /data/ssh 0750 root shell
     mkdir /data/ssh/empty 0700 root root
     mkdir /data/radio 0770 radio radio
+	
+	# SA, System SW, SAMSUNG create log directory
+    mkdir /data/log 0775 system log
+    chown system log /data/log
+    mkdir /data/anr 0775 system system
+    chown system system /data/anr
+    chmod 0775 /data/log
+    chmod 0775 /data/anr
+    restorecon /data/log
+    restorecon /data/anr
 
     # create dalvik-cache and double-check the perms, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
@@ -545,6 +555,7 @@ service servicemanager /system/bin/servicemanager
     onrestart restart media
     onrestart restart surfaceflinger
     onrestart restart drm
+	onrestart restart sensorhubservice
 
 service vold /system/bin/vold
     class core
@@ -582,7 +593,7 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
     onrestart restart media
     onrestart restart netd
 
-service drm /system/bin/drmserver.samsung
+service drm /system/bin/drmserver
     class main
     user drm
 # Samsung changed: [ SEC_MM_DRM
@@ -658,3 +669,25 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
+	
+# for RIL MFG (TestMode)
+service DR-daemon /system/bin/ddexe
+    class main
+    user root
+    group system radio inet net_raw
+
+service SMD-daemon /system/bin/smdexe
+    class main
+    user root
+    group system radio inet net_raw
+
+service BCS-daemon /system/bin/connfwexe
+    class main
+    user root
+    group system radio inet net_raw
+# end of RIL
+
+service sensorhubservice /system/bin/sensorhubservice
+    class main
+    user system
+    group input
