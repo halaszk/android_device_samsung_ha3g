@@ -22,9 +22,16 @@ lib/lib_Samsung_AudioZoom_v100.so
 lib/lib_SoundBooster_ver402.so
 lib/libcontrolcsc.so
 lib/libtinyalsa.so
+lib/soundfx/libbundlewrapper.so
+lib/soundfx/libreverbwrapper.so
+lib/soundfx/libvisualizer.so
+lib/soundfx/libdownmix.so
+lib/soundfx/libaudiosa_sec.so
+lib/libmysound.so
+lib/libaudiosa.so
 csc/sales_code.dat
 usr/share/alsa/alsa.conf
-vendor/etc/audio_effects.conf
+etc/audio_effects.conf
 vendor/firmware/srp_cga.bin
 vendor/firmware/srp_data.bin
 vendor/firmware/srp_vliw.bin
@@ -62,13 +69,13 @@ lib/libsecnativefeature.so
 lib/libvdis.so
 
 # DRM
-bin/drmserver
+bin/drmserver:bin/drmserver.samsung
 lib/libdrmdecrypt.so
 lib/libstagefright_hdcp.so
-vendor/lib/libwvdrm_L1.so
 lib/libWVphoneAPI.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libwvdrm_L1.so
 lib/omx/libOMX.Exynos.AVC.Decoder.so
 lib/omx/libOMX.Exynos.AVC.Encoder.so
 lib/omx/libOMX.Exynos.MPEG4.Decoder.so
@@ -92,7 +99,7 @@ lib/hw/gps.default.so
 lib/libwrappergps.so
 
 # HWC
-vendor/lib/hw/gralloc.exynos5.so
+#vendor/lib/hw/gralloc.exynos5.so
 
 # Media
 vendor/firmware/fimc_is_fw2_3L2.bin
@@ -135,7 +142,7 @@ vendor/firmware/bcm2079xB5_firmware.ncd
 vendor/firmware/bcm2079xB5_pre_firmware.ncd
 
 # Power
-vendor/lib/hw/power.exynos5.so
+#vendor/lib/hw/power.exynos5.so
 
 # Sensors
 lib/hw/sensorhubs.universal5420.so
