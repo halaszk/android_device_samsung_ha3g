@@ -288,7 +288,7 @@ PRODUCT_COPY_FILES += \
 #common build.props
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.chipname=exynos5420 \
-    ro.sf.lcd_density=320 \
+    ro.sf.lcd_density=480 \
     ro.opengles.version=196608 \
     persist.timed.enable=true \
     keyguard.no_require_sim=true

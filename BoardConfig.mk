@@ -56,7 +56,7 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/ha3g
+TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
 TARGET_KERNEL_CONFIG := cm_ha3g_defconfig
 #BOARD_KERNEL_CMDLINE := console=null vmalloc=512M androidboot.console=null user_debug=31
 BOARD_KERNEL_BASE := 0x10000000

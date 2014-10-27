@@ -21,7 +21,7 @@ ro.hwui.text_large_cache_height=1024
 # USB
 persist.sys.usb.config=mtp,adb
 
-ro.sf.lcd_density=320
+ro.sf.lcd_density=480
 ro.zygote.disable_gl_preload=1
 debug.sf.swaprect=0
 rild.libpath=/system/lib/libsec-ril.so
