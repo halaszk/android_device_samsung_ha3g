@@ -1,7 +1,7 @@
 # Audio
 #lib/hw/audio.a2dp.default.so
-lib/hw/audio_policy.universal5420.so
-lib/hw/audio.primary.universal5420.so
+##lib/hw/audio_policy.universal5420.so
+##lib/hw/audio.primary.universal5420.so
 #lib/hw/audio.usb.default.so
 #lib/hw/audio.r_submix.default.so
 #lib/libtinyxml.so
@@ -99,7 +99,7 @@ lib/hw/gps.default.so
 lib/libwrappergps.so
 
 # HWC
-#vendor/lib/hw/gralloc.exynos5.so
+vendor/lib/hw/gralloc.exynos5.so
 
 # Media
 vendor/firmware/fimc_is_fw2_3L2.bin
@@ -158,9 +158,9 @@ lib/libsensorhubservice.so
 bin/sensorhubservice
 
 # Radio
-lib/libaudio-ril.so
+#lib/libaudio-ril.so
 lib/libsec-ril.so
-lib/libsecril-client.so
+#lib/libsecril-client.so
 lib/libsecnativefeature.so
 bin/at_distributor
 bin/mlexe

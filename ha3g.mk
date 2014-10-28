@@ -147,13 +147,14 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     mixer_paths.xml \
-    libtinyxml
+    libtinyxml \
+    tinymix
 
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
-    hwcomposer.exynos5 \
-    gralloc.exynos5
+    hwcomposer.exynos5
+#    gralloc.exynos5
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -284,14 +285,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 #    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
 #    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-#common build.props
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.chipname=exynos5420 \
-    ro.sf.lcd_density=480 \
-    ro.opengles.version=196608 \
-    persist.timed.enable=true \
-    keyguard.no_require_sim=true
 
 # Permissions
 PRODUCT_COPY_FILES += \
