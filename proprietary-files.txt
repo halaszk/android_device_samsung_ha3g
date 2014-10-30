@@ -1,10 +1,10 @@
 # Audio
-#lib/hw/audio.a2dp.default.so
-##lib/hw/audio_policy.universal5420.so
-##lib/hw/audio.primary.universal5420.so
-#lib/hw/audio.usb.default.so
-#lib/hw/audio.r_submix.default.so
-#lib/libtinyxml.so
+lib/hw/audio.a2dp.default.so
+lib/hw/audio_policy.universal5420.so
+lib/hw/audio.primary.universal5420.so
+lib/hw/audio.usb.default.so
+lib/hw/audio.r_submix.default.so
+lib/libtinyxml.so
 lib/libymc_codecctrl.so
 lib/libymc_config.so
 lib/libsamsungSoundbooster_ext.so
@@ -31,7 +31,6 @@ lib/libmysound.so
 lib/libaudiosa.so
 csc/sales_code.dat
 usr/share/alsa/alsa.conf
-etc/audio_effects.conf
 vendor/firmware/srp_cga.bin
 vendor/firmware/srp_data.bin
 vendor/firmware/srp_vliw.bin
@@ -67,6 +66,9 @@ lib/libexynoscamera.so
 lib/libliveframework.so
 lib/libsecnativefeature.so
 lib/libvdis.so
+#lib/libexynosutils.so
+#lib/libexynosv4l2.so
+#lib/libhwjpeg.so
 
 # DRM
 bin/drmserver:bin/drmserver.samsung
@@ -99,7 +101,8 @@ lib/hw/gps.default.so
 lib/libwrappergps.so
 
 # HWC
-vendor/lib/hw/gralloc.exynos5.so
+#vendor/lib/hw/gralloc.exynos5.so
+#lib/libfimg.so
 
 # Media
 vendor/firmware/fimc_is_fw2_3L2.bin
@@ -141,9 +144,6 @@ vendor/firmware/bcm2079xB4_pre_firmware.ncd
 vendor/firmware/bcm2079xB5_firmware.ncd
 vendor/firmware/bcm2079xB5_pre_firmware.ncd
 
-# Power
-#vendor/lib/hw/power.exynos5.so
-
 # Sensors
 lib/hw/sensorhubs.universal5420.so
 lib/libgnustl_shared.so
@@ -158,9 +158,11 @@ lib/libsensorhubservice.so
 bin/sensorhubservice
 
 # Radio
-#lib/libaudio-ril.so
+bin/rild
+lib/libril.so
+lib/libaudio-ril.so
 lib/libsec-ril.so
-#lib/libsecril-client.so
+lib/libsecril-client.so
 lib/libsecnativefeature.so
 bin/at_distributor
 bin/mlexe

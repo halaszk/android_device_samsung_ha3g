@@ -16,12 +16,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#LOCAL_KERNEL := device/samsung/ha3g/kernel
-#else
-#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
-
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
@@ -67,7 +61,6 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/ysound.xml:system/etc/ysound.xml \
     $(LOCAL_PATH)/configs/ymc/param/aec_adc.dat:system/etc/ymc/param/aec_adc.dat \
     $(LOCAL_PATH)/configs/ymc/param/aec_ae0_through.dat:system/etc/ymc/param/aec_ae0_through.dat \
@@ -142,6 +135,7 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_PACKAGES += \
+    audiod \
     audio.primary.universal5420 \
     audio.a2dp.default \
     audio.r_submix.default \
@@ -153,8 +147,8 @@ PRODUCT_PACKAGES += \
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
-    hwcomposer.exynos5
-#    gralloc.exynos5
+    hwcomposer.exynos5 \
+    gralloc.exynos5
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -170,8 +164,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 #PRODUCT_PACKAGES += \
-#    libExynosHWCService \
-#    libfimg
+    libExynosHWCService \
+    libfimg
 
 # GPS
 PRODUCT_PACKAGES += \
