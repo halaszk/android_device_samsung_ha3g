@@ -173,12 +173,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.cer:system/etc/gps.cer \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
-
-# support for epen
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc
 
 # IR
 PRODUCT_PACKAGES += \
@@ -257,7 +252,7 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=131072 \
+    ro.opengles.version=196608 \
     wifi.interface=wlan0
 
 # Misc

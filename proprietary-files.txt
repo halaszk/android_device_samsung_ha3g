@@ -218,3 +218,26 @@ vendor/lib/liblvverx_3.20.03.so
 vendor/lib/liblvvetx_3.20.03.so
 bin/secure_storage_daemon
 bin/bintvoutservice
+
+
+# S-Pen
+usr/idc/sec_e-pen.idc
+lib/libSPenBase.so
+lib/libSPenBeautify.so
+lib/libSPenBrush.so
+lib/libSPenChineseBrush.so
+lib/libSPenEngine.so
+lib/libSPenHSV.so
+lib/libSPenImageFilterLibs.so
+lib/libSPenInit.so
+lib/libSPenInkPen.so
+lib/libSPenMagicPen.so
+lib/libSPenMarker.so
+lib/libSPenModel.so
+lib/libSPenNativePen.so
+lib/libSPenPencil.so
+lib/libSPenPluginFW.so
+lib/libSPenScreenCodecDecoder.so
+lib/libSPenSkia.so
+lib/libSPenVIRecognition.so
+lib/libSPenVITextAll.so
