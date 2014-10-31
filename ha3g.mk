@@ -244,8 +244,22 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
+    rild \
     libsecril-client \
-    libsecril-client-sap
+
+# RIL properties
+PRODUCT_PROPERTY_OVERRIDER += \
+   rild.libargs=-d /dev/ttyS0 \
+   rild.libpath=/system/lib/libsec-ril.so \
+   ro.ril.gprsclass=10 \
+   ro.ril.hsxpa=1 \
+   ro.ril.svdo=false \
+   ro.ril.svlte1x=false \
+   ro.telephony.call_ring.multiple=false \
+   ro.telephony.default_network=6 \
+   persist.radio.jbims=1 \
+   ro.telephony.ril.v3=newDialCode,newDriverCallU \
+   ro.telephony.ril_class=Ha3gRIL
 
 # Samsung
 PRODUCT_PACKAGES += \

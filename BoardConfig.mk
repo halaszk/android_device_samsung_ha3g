@@ -33,7 +33,6 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a15
-APP_ABI := armeabi-v7a
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Bluetooth
@@ -182,9 +181,9 @@ BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 # SCALER
 BOARD_USES_SCALER := true
 
-# Radio
+# RIL
+BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 BOARD_PROVIDES_LIBRIL := true
-BOARD_MODEM_TYPE := xmm6360
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
@@ -206,6 +205,9 @@ BOARD_NFC_HAL_SUFFIX := universal5420
 
 # CMHW
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+
+# RIL Debug
+BOARD_RIL_CLASS := ../../../device/samsung/ha3g/ril
 
 # inherit from the proprietary version
 -include vendor/samsung/ha3g/BoardConfigVendor.mk

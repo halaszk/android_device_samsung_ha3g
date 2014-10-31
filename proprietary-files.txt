@@ -100,10 +100,6 @@ bin/gpsd
 lib/hw/gps.default.so
 lib/libwrappergps.so
 
-# HWC
-#vendor/lib/hw/gralloc.exynos5.so
-#lib/libfimg.so
-
 # Media
 vendor/firmware/fimc_is_fw2_3L2.bin
 vendor/firmware/fimc_is_fw2.bin
@@ -158,11 +154,8 @@ lib/libsensorhubservice.so
 bin/sensorhubservice
 
 # Radio
-bin/rild
-lib/libril.so
 lib/libaudio-ril.so
 lib/libsec-ril.so
-lib/libsecril-client.so
 lib/libsecnativefeature.so
 bin/at_distributor
 bin/mlexe
