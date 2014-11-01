@@ -51,9 +51,6 @@ PRODUCT_PACKAGES += \
     lpm.rc \
     ueventd.universal5420.rc
 
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/kernel:kernel
-
 # Recovery
 PRODUCT_PACKAGES += \
     init.recovery.universal5420.rc
@@ -141,8 +138,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     mixer_paths.xml \
-    libtinyxml \
-    tinymix
+    libtinyxml 
 
 # HW composer
 PRODUCT_PACKAGES += \
@@ -163,7 +159,7 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Display
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libExynosHWCService \
     libfimg
 
@@ -244,8 +240,8 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    rild \
     libsecril-client \
+    libsecril-client-sap
 
 # RIL properties
 PRODUCT_PROPERTY_OVERRIDER += \
@@ -324,11 +320,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
 # call hwui memory config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+#$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/ha3g/ha3g-vendor.mk)
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_ha3g
-PRODUCT_DEVICE := ha3g

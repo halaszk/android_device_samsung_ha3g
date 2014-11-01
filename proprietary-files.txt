@@ -1,10 +1,10 @@
 # Audio
-lib/hw/audio.a2dp.default.so
+#lib/hw/audio.a2dp.default.so
 lib/hw/audio_policy.universal5420.so
 lib/hw/audio.primary.universal5420.so
-lib/hw/audio.usb.default.so
-lib/hw/audio.r_submix.default.so
-lib/libtinyxml.so
+#lib/hw/audio.usb.default.so
+#lib/hw/audio.r_submix.default.so
+#lib/libtinyxml.so
 lib/libymc_codecctrl.so
 lib/libymc_config.so
 lib/libsamsungSoundbooster_ext.so
@@ -154,6 +154,9 @@ lib/libsensorhubservice.so
 bin/sensorhubservice
 
 # Radio
+bin/rild
+lib/libril.so
+lib/libsecril-client.so
 lib/libaudio-ril.so
 lib/libsec-ril.so
 lib/libsecnativefeature.so
@@ -211,6 +214,8 @@ vendor/lib/liblvverx_3.20.03.so
 vendor/lib/liblvvetx_3.20.03.so
 bin/secure_storage_daemon
 bin/bintvoutservice
+bin/drsd
+bin/jackservice
 
 
 # S-Pen

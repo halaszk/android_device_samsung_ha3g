@@ -75,12 +75,15 @@ loglevel 3
     mkdir /config 0500 root root
 
     # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell 0700 shell shell
-    mkdir /mnt/media_rw 0700 media_rw media_rw
+    mkdir /mnt/shell 0750 shell shell
+    mkdir /mnt/media_rw 0750 media_rw media_rw
     mkdir /storage 0751 root sdcard_r
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
+	
+	# Create private mountpoint so we can MS_MOVE from staging
+    mount tmpfs tmpfs /mnt/secure mode=0700,uid=0,gid=0
 
     # Directory for staging bindmounts
     mkdir /mnt/secure/staging 0700 root root
@@ -88,6 +91,8 @@ loglevel 3
     # Directory-target for where the secure container
     # imagefile directory will be bind-mounted
     mkdir /mnt/secure/asec  0700 root root
+	
+	mount tmpfs tmpfs /mnt/secure/asec mode=0700,uid=0,gid=0
 
     # Secure container public mount points.
     mkdir /mnt/asec  0700 root system
@@ -165,6 +170,8 @@ on post-fs
     mount rootfs rootfs / ro remount
     # mount shared so changes propagate into child namespaces
     mount rootfs rootfs / shared rec
+	mount tmpfs tmpfs /mnt/secure private rec
+    mount tmpfs tmpfs /mnt/secure/asec shared rec
 
     # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
@@ -539,7 +546,7 @@ service adbd /sbin/adbd
     class core
     socket adbd stream 660 system system
     disabled
-    seclabel u:r:adbd:s0
+#    seclabel u:r:adbd:s0
 
 # adbd on at boot in emulator
 on property:ro.kernel.qemu=1
@@ -550,12 +557,13 @@ service servicemanager /system/bin/servicemanager
     user system
     group system
     critical
+    start adbd
     onrestart restart healthd
     onrestart restart zygote
     onrestart restart media
     onrestart restart surfaceflinger
     onrestart restart drm
-    #onrestart restart sensorhubservice
+    onrestart restart sensorhubservice
 
 service vold /system/bin/vold
     class core
@@ -638,6 +646,11 @@ service racoon /system/bin/racoon
     group vpn net_admin inet
     disabled
     oneshot
+	
+service jackservice /system/bin/jackservice
+    class main
+    user jack
+    group system audio inet shell
 
 service mtpd /system/bin/mtpd
     class main
@@ -691,3 +704,8 @@ service sensorhubservice /system/bin/sensorhubservice
     class main
     user system
     group input
+
+# SAMSUNG DRS Service
+service drsd /system/bin/drsd
+    class main
+    socket drsd stream 600 system system
