@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
-    hwcomposer.exynos5 \
+#    hwcomposer.exynos5 \
     gralloc.exynos5
 
 # Camera
@@ -314,6 +314,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
+# CPU producer to CPU consumer not supported 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bq.gpu_to_cpu_unsupported=1
+
 #$(call inherit-product, build/target/product/full.mk)
 
 # call dalvik heap config
@@ -324,3 +328,4 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/ha3g/ha3g-vendor.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
