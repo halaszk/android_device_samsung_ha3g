@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
-#    hwcomposer.exynos5 \
+    hwcomposer.exynos5 \
     gralloc.exynos5
 
 # Camera
