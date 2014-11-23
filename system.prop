@@ -9,17 +9,6 @@ ro.hdcp2.rx=tz
 ro.build.scafe=americano
 ro.build.scafe.size=short
 ro.build.scafe.shot=double
-ro.hwui.texture_cache_size=48
-ro.hwui.layer_cache_size=32
-ro.hwui.path_cache_size=8
-ro.hwui.shape_cache_size=2
-ro.hwui.gradient_cache_size=1
-ro.hwui.drop_shadow_cache_size=4
-ro.hwui.texture_cache_flushrate=0.5
-ro.hwui.text_small_cache_width=2048
-ro.hwui.text_small_cache_height=1024
-ro.hwui.text_large_cache_width=4096
-ro.hwui.text_large_cache_height=2048
 
 # USB
 persist.sys.usb.config=mtp,adb
@@ -38,3 +27,9 @@ ro.securestorage.support=true
 
 # Wifi
 wifi.interface=wlan0
+
+#RIL
+rild.libpath=/system/lib/libsec-ril.so
+rild.libargs=-d /dev/ttyS0
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10

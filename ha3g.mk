@@ -137,7 +137,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
-    mixer_paths.xml \
     libtinyxml 
 
 # HW composer
@@ -243,20 +242,6 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
 
-# RIL properties
-PRODUCT_PROPERTY_OVERRIDER += \
-   rild.libargs=-d /dev/ttyS0 \
-   rild.libpath=/system/lib/libsec-ril.so \
-   ro.ril.gprsclass=10 \
-   ro.ril.hsxpa=1 \
-   ro.ril.svdo=false \
-   ro.ril.svlte1x=false \
-   ro.telephony.call_ring.multiple=false \
-   ro.telephony.default_network=6 \
-   persist.radio.jbims=1 \
-   ro.telephony.ril.v3=newDialCode,newDriverCallU \
-   ro.telephony.ril_class=Ha3gRIL
-
 # Samsung
 PRODUCT_PACKAGES += \
     SamsungServiceMode
@@ -324,8 +309,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
 # call hwui memory config
-#$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/ha3g/ha3g-vendor.mk)
-$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
